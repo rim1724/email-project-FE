@@ -1,0 +1,57 @@
+<main class="name-page">
+  <section class="name-card" aria-labelledby="name-title">
+    <div class="name-intro">
+      <img
+        class="google-logo"
+        src="/images/330px-Google_Favicon_2025.svg.png"
+        alt="Google"
+      />
+      <h1 id="name-title">Tạo Tài khoản Google</h1>
+      <p>Nhập tên của bạn</p>
+    </div>
+
+    <div class="name-form-container">
+      <form (submit)="submit($event)" novalidate>
+        <div class="fields">
+          <div class="input-field">
+            <input
+              id="last-name"
+              name="lastName"
+              type="text"
+              autocomplete="family-name"
+              placeholder=" "
+              [formControl]="lastName"
+            />
+            <label for="last-name">Họ (không bắt buộc)</label>
+          </div>
+
+          <div class="input-field">
+            <input
+              id="first-name"
+              name="firstName"
+              type="text"
+              autocomplete="given-name"
+              placeholder=" "
+              [formControl]="firstName"
+              [attr.aria-invalid]="firstName.touched && firstName.invalid"
+              [attr.aria-describedby]="firstName.touched && firstName.invalid ? 'first-name-error' : null"
+            />
+            <label for="first-name">Tên</label>
+          </div>
+
+          @if (firstName.touched && firstName.hasError('required')) {
+            <p class="field-error" id="first-name-error" role="alert">
+              Vui lòng nhập tên.
+            </p>
+          }
+        </div>
+
+        <div class="actions">
+          <button class="next-button" type="submit">Tiếp theo</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <app-footerauth></app-footerauth>
+</main>

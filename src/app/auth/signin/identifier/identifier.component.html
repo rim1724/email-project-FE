@@ -1,0 +1,55 @@
+<section class="signin-card" aria-labelledby="signin-title">
+  <div class="intro">
+    <div class="mail-mark" aria-hidden="true">
+      <img src="/images/330px-Google_Favicon_2025.svg.png" alt="Google" />
+    </div>
+
+    <h1 id="signin-title">Đăng nhập</h1>
+    <p>
+      bằng Tài khoản Google để tiếp tục sử dụng Gmail. Bạn sẽ có thể truy cập vào các ứng dụng khác của Google trong trình duyệt bằng tài khoản này.
+    </p>
+  </div>
+
+  <div class="signin-content">
+    <div>
+      <div class="input-field">
+        <input
+          id="account-identifier"
+          name="identifier"
+          type="text"
+          autocomplete="username"
+          placeholder=" "
+          [formControl]="identifier"
+          [attr.aria-invalid]="identifier.touched && identifier.invalid"
+          [attr.aria-describedby]="identifier.touched && identifier.invalid ? 'identifier-error' : null"
+        />
+        <label for="account-identifier">Email hoặc số điện thoại</label>
+      </div>
+
+      <button class="text-action forgot-link" type="button" (click)="forgotIdentifierRequested.emit()">
+        Bạn quên địa chỉ email?
+      </button>
+
+      <p class="guest-note">
+        Đây không phải máy tính của bạn? Hãy sử dụng Chế độ khách để đăng nhập một cách riêng tư.
+        <button class="text-action inline-action" type="button" (click)="guestModeHelpRequested.emit()">
+          Tìm hiểu thêm về cách sử dụng Chế độ khách
+        </button>
+      </p>
+
+      <div class="actions">
+        <a class="text-action create-account" routerLink="/name">
+          Tạo tài khoản
+        </a>
+        <a
+          class="next-button"
+          routerLink="/password"
+          [state]="{ accountEmail: identifier.value.trim() }"
+        >
+          Tiếp theo
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+<app-footerauth></app-footerauth>

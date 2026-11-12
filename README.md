@@ -57,3 +57,7 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+## Sign in
+indentifier -> password -> recaptcha
+ChooseMethod: chọn phương thức đăng nhập khác khi không nhập mật khẩu(có thể bỏ)

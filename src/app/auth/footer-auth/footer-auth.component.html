@@ -1,0 +1,20 @@
+<footer class="auth-footer">
+  <div class="language-picker">
+    <label class="visually-hidden" for="language-select">Chọn ngôn ngữ</label>
+    <select
+      id="language-select"
+      [value]="selectedLanguage()"
+      (change)="changeLanguage($event)"
+    >
+      <option value="vi">Tiếng Việt</option>
+      <option value="en">English</option>
+    </select>
+    <span class="dropdown-icon" aria-hidden="true"></span>
+  </div>
+
+  <nav aria-label="Liên kết hỗ trợ và pháp lý">
+    <a href="/help">Trợ giúp</a>
+    <a href="/privacy">Quyền riêng tư</a>
+    <a href="/terms">Điều khoản</a>
+  </nav>
+</footer>

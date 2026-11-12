@@ -1,0 +1,263 @@
+:host {
+  display: block;
+  color: #202124;
+  font-family: Roboto, Arial, sans-serif;
+}
+
+.signin-card {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 42px;
+  width: min(100%, 1120px);
+  height: 400px;
+  margin-inline: auto;
+  padding: 40px 38px 36px;
+  border-radius: 26px;
+  background: #fff;
+}
+
+.intro {
+  min-width: 0;
+}
+
+.mail-mark {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+}
+
+.mail-mark img {
+  display: block;
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+h1 {
+  margin: 30px 0 16px;
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.intro p {
+  max-width: 500px;
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.signin-content {
+  align-self: start;
+  min-width: 0;
+  margin-top: 82px;
+}
+
+form {
+  display: flex;
+  height: 264px;
+  flex-direction: column;
+}
+
+.input-field {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  border: 1px solid #747775;
+  border-radius: 4px;
+  background: #fff;
+}
+
+.input-field:focus-within {
+  border: 2px solid #0b57d0;
+}
+
+.input-field:has(input[aria-invalid='true']:focus) {
+  border-width: 2px;
+}
+
+input {
+  box-sizing: border-box;
+  width: 100%;
+  height: 58px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: inherit;
+  outline: none;
+  background: transparent;
+  color: #202124;
+  font: inherit;
+  font-size: 16px;
+}
+
+.input-field label {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  padding: 0 4px;
+  background: #fff;
+  color: #5f6368;
+  font-size: 16px;
+  line-height: 1;
+  pointer-events: none;
+  transform: translateY(-50%);
+  transform-origin: left center;
+  transition:
+    top 120ms ease,
+    color 120ms ease,
+    font-size 120ms ease;
+}
+
+.input-field:focus-within label,
+input:not(:placeholder-shown) + label {
+  top: 0;
+  color: #0b57d0;
+  font-size: 12px;
+}
+
+.input-field input:focus-visible {
+  outline: none;
+}
+
+.text-action {
+  display: inline-block;
+  width: fit-content;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #0b57d0;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.text-action:hover {
+  background: #f1f5fd;
+}
+
+.text-action:focus-visible,
+.next-button:focus-visible {
+  outline: 2px solid #0b57d0;
+  outline-offset: 2px;
+}
+
+.forgot-link {
+  margin-top: 10px;
+  margin-left: -6px;
+  padding: 4px 6px;
+  border-radius: 16px;
+}
+
+.guest-note {
+  margin: 46px 0 0;
+  color: #5f6368;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.inline-action {
+  display: inline;
+  padding: 2px 4px;
+  border-radius: 12px;
+  font-size: inherit;
+}
+
+.create-account {
+  padding: 10px 16px;
+  border-radius: 24px;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 36px;
+  margin-top: auto;
+  margin-bottom: 12px;
+  padding-top: 28px;
+}
+
+.next-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 116px;
+  min-height: 42px;
+  padding: 0 22px;
+  border: 0;
+  border-radius: 24px;
+  background: #0b57d0;
+  color: #fff;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.next-button:hover {
+  background: #0842a0;
+  box-shadow: 0 1px 3px rgb(60 64 67 / 30%);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+
+@media (max-width: 760px) {
+  .signin-card {
+    grid-template-columns: 1fr;
+    gap: 26px;
+    height: auto;
+    padding: 32px;
+    border-radius: 22px;
+  }
+
+  h1 {
+    margin-top: 24px;
+  }
+
+  .signin-content {
+    margin-top: 0;
+  }
+
+  form {
+    height: auto;
+  }
+
+  .guest-note {
+    margin-top: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .signin-card {
+    gap: 22px;
+    padding: 26px 22px;
+    border-radius: 18px;
+  }
+
+  h1 {
+    font-size: 30px;
+  }
+
+  .intro p {
+    font-size: 16px;
+  }
+
+  .actions {
+    justify-content: space-between;
+    gap: 20px;
+  }
+}
