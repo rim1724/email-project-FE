@@ -1,10 +1,10 @@
 import { Component, inject, output, signal } from '@angular/core';
 import { ReactiveFormsModule, FormControl, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { Footerauth } from '../../footer-auth/footer-auth.component';
 
 @Component({
-  imports: [ReactiveFormsModule, Footerauth],
+  imports: [ReactiveFormsModule, RouterLink, Footerauth],
   selector: 'app-password',
   styleUrl: './password.component.css',
   templateUrl: './password.component.html',
@@ -13,7 +13,6 @@ export class Password {
   private readonly router = inject(Router);
   readonly accountEmail = signal(this.getAccountEmail());
   readonly passwordSubmitted = output<string>();
-  readonly forgotPasswordRequested = output<void>();
   readonly accountChangeRequested = output<void>();
   readonly showPassword = signal(false);
 
@@ -42,5 +41,7 @@ export class Password {
     if (this.password.invalid) {
       return;
     }
+
+    this.passwordSubmitted.emit(this.password.value);
   }
 }

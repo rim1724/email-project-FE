@@ -1,1 +1,92 @@
-<p>username works!</p>
+<main class="username-page">
+  <section class="username-card" aria-labelledby="username-title">
+    <div class="username-intro">
+      <img
+        class="google-logo"
+        ngSrc="/images/330px-Google_Favicon_2025.svg.png"
+        width="40"
+        height="40"
+        alt="Google"
+      />
+      <h1 id="username-title">Tạo một địa chỉ email</h1>
+      <p>Tạo một địa chỉ Gmail để đăng nhập vào Tài khoản Google của bạn</p>
+    </div>
+
+    <div class="username-form-container">
+      <form (submit)="submit($event)" novalidate>
+        <div class="fields">
+          <fieldset class="suggestions">
+            <legend class="visually-hidden">Chọn địa chỉ Gmail</legend>
+            @for (suggestion of suggestions; track suggestion.id) {
+              <label class="suggestion-option">
+                <input
+                  type="radio"
+                  name="username-choice"
+                  [checked]="selectedChoice() === suggestion.id"
+                  (change)="selectChoice(suggestion.id)"
+                />
+                <span>{{ suggestion.username }}@gmail.com</span>
+              </label>
+            }
+            <label class="suggestion-option">
+              <input
+                type="radio"
+                name="username-choice"
+                [checked]="selectedChoice() === 'custom'"
+                (change)="selectChoice('custom')"
+              />
+              <span>Tạo địa chỉ Gmail của riêng bạn</span>
+            </label>
+          </fieldset>
+
+          @if (selectedChoice() === 'custom') {
+            <div class="custom-username">
+              <div class="input-field" [class.has-error]="username.touched && username.invalid">
+                <input
+                  id="username"
+                  name="username"
+                  type="text"
+                  autocomplete="username"
+                  placeholder=" "
+                  [formControl]="username"
+                  [attr.aria-invalid]="username.touched && username.invalid"
+                  [attr.aria-describedby]="
+                    username.touched && username.invalid
+                      ? 'username-hint username-error'
+                      : 'username-hint'
+                  "
+                />
+                <label for="username">Tạo một địa chỉ Gmail</label>
+                <span class="email-suffix" aria-hidden="true">@gmail.com</span>
+              </div>
+
+              <p class="username-hint" id="username-hint">
+                Bạn có thể sử dụng chữ cái, số và dấu chấm
+              </p>
+
+              @if (username.touched && username.invalid) {
+                <p class="field-error" id="username-error" role="alert">
+                  @if (username.hasError('required')) {
+                    Vui lòng nhập tên người dùng.
+                  } @else if (username.hasError('minlength')) {
+                    Tên người dùng phải có ít nhất 6 ký tự.
+                  } @else if (username.hasError('maxlength')) {
+                    Tên người dùng không được vượt quá 30 ký tự.
+                  } @else {
+                    Chỉ sử dụng chữ cái, số và dấu chấm.
+                  }
+                </p>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="actions">
+          <button class="next-button" type="submit">Tiếp theo</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <app-footerauth></app-footerauth>
+</main>

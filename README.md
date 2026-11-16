@@ -61,3 +61,6 @@ For more information on using the Angular CLI, including detailed command refere
 ## Sign in
 indentifier -> password -> recaptcha
 ChooseMethod: chọn phương thức đăng nhập khác khi không nhập mật khẩu(có thể bỏ)
+
+## Sign up
+name -> birthdaygender -> username -> password -> createpassword

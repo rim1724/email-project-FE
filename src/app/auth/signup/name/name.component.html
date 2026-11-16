@@ -1,11 +1,7 @@
 <main class="name-page">
   <section class="name-card" aria-labelledby="name-title">
     <div class="name-intro">
-      <img
-        class="google-logo"
-        src="/images/330px-Google_Favicon_2025.svg.png"
-        alt="Google"
-      />
+      <img class="google-logo" src="/images/330px-Google_Favicon_2025.svg.png" alt="Google" />
       <h1 id="name-title">Tạo Tài khoản Google</h1>
       <p>Nhập tên của bạn</p>
     </div>
@@ -34,14 +30,29 @@
               placeholder=" "
               [formControl]="firstName"
               [attr.aria-invalid]="firstName.touched && firstName.invalid"
-              [attr.aria-describedby]="firstName.touched && firstName.invalid ? 'first-name-error' : null"
+              [attr.aria-describedby]="
+                firstName.touched && firstName.invalid ? 'first-name-error' : null
+              "
             />
             <label for="first-name">Tên</label>
           </div>
 
           @if (firstName.touched && firstName.hasError('required')) {
             <p class="field-error" id="first-name-error" role="alert">
-              Vui lòng nhập tên.
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="16"
+                height="16"
+                fill="currentColor"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path
+                  d="M12.71,16.71Q13,16.43 13,16t-0.29-0.71T12,15t-0.71,0.29T11,16t0.29,0.71T12,17t0.71-0.29ZM11,13h2V7H11v6Zm1,9q-2.07,0-3.9-0.79q-1.82-0.79-3.17-2.14Q3.58,17.73 2.79,15.9T2,12Q2,9.92 2.79,8.1Q3.58,6.27 4.93,4.93Q6.28,3.57 8.1,2.79Q9.93,2 12,2t3.9,0.79t3.17,2.14q1.35,1.35 2.14,3.17Q22,9.92 22,12t-0.79,3.9t-2.14,3.17q-1.35,1.35-3.17,2.14T12,22Z"
+                />
+              </svg>
+              Hãy nhập tên.
             </p>
           }
         </div>
