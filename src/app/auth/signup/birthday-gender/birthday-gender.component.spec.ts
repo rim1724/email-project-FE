@@ -3,8 +3,8 @@ import { Location } from '@angular/common';
 import { provideRouter } from '@angular/router';
 import { Router } from '@angular/router';
 import { vi } from 'vitest';
-import { Username } from '../username/username';
-import { Birthdaygender } from './birthdaygender';
+import { Username } from '../username/username.component';
+import { Birthdaygender } from './birthday-gender.component';
 
 describe('Birthdaygender', () => {
   let component: Birthdaygender;
@@ -60,11 +60,11 @@ describe('Birthdaygender', () => {
   it('should emit valid birthday and gender details', () => {
     let submitted:
       | {
-          day: number;
-          month: number;
-          year: number;
-          gender: string;
-        }
+        day: number;
+        month: number;
+        year: number;
+        gender: string;
+      }
       | undefined;
     component.birthdayGenderSubmitted.subscribe((value) => {
       submitted = value;

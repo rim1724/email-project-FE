@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { Addrecoveryemail } from './addrecoveryemail';
+import { Addrecoveryemail } from './add-recovery-email.component';
 
 describe('Addrecoveryemail', () => {
   let component: Addrecoveryemail;

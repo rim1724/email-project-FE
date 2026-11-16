@@ -25,8 +25,8 @@ function passwordsMatch(control: AbstractControl): ValidationErrors | null {
 @Component({
   imports: [Footerauth, NgOptimizedImage, ReactiveFormsModule, RouterLink],
   selector: 'app-createpassword',
-  styleUrl: './createpassword.css',
-  templateUrl: './createpassword.html',
+  styleUrl: './create-password.component.css',
+  templateUrl: './create-password.component.html',
 })
 export class Createpassword {
   readonly passwordSubmitted = output<string>();

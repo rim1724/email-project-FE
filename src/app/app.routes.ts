@@ -1,10 +1,10 @@
 import { Routes } from '@angular/router';
 import { Identifier } from './auth/signin/identifier/identifier.component';
 import { Password } from './auth/signin/password/password.component';
-import { Birthdaygender } from './auth/signup/birthdaygender/birthdaygender';
-import { Createpassword } from './auth/signup/createpassword/createpassword';
+import { Birthdaygender } from './auth/signup/birthday-gender/birthday-gender.component';
+import { Createpassword } from './auth/signup/create-password/create-password.component';
 import { Name } from './auth/signup/name/name.component';
-import { Username } from './auth/signup/username/username';
+import { Username } from './auth/signup/username/username.component';
 import { MailComponent } from './mail/mail.component';
 
 export const routes: Routes = [
