@@ -1,5 +1,6 @@
-import { Component, output } from '@angular/core';
+import { Component, inject, output } from '@angular/core';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Footerauth } from '../../footer-auth/footer-auth.component';
 
 @Component({
@@ -9,6 +10,8 @@ import { Footerauth } from '../../footer-auth/footer-auth.component';
   templateUrl: './name.component.html',
 })
 export class Name {
+  private readonly router = inject(Router);
+
   readonly nameSubmitted = output<{ firstName: string; lastName: string }>();
 
   readonly firstName = new FormControl('', {
@@ -19,15 +22,26 @@ export class Name {
 
   submit(event: Event): void {
     event.preventDefault();
+    const signupName = this.continue();
+
+    if (signupName) {
+      void this.router.navigateByUrl('/birthdaygender', { state: { signupName } });
+    }
+  }
+
+  continue(): { firstName: string; lastName: string } | null {
     this.firstName.markAsTouched();
 
     if (this.firstName.invalid) {
-      return;
+      return null;
     }
 
-    this.nameSubmitted.emit({
+    const signupName = {
       firstName: this.firstName.value.trim(),
       lastName: this.lastName.value.trim(),
-    });
+    };
+    this.nameSubmitted.emit(signupName);
+
+    return signupName;
   }
 }

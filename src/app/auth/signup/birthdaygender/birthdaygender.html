@@ -1,1 +1,136 @@
-<p>birthdaygender works!</p>
+<main class="birthday-page">
+  <section class="birthday-card" aria-labelledby="birthday-title">
+    <div class="birthday-intro">
+      <img
+        class="google-logo"
+        ngSrc="/images/330px-Google_Favicon_2025.svg.png"
+        width="40"
+        height="40"
+        alt="Google"
+      />
+      <h1 id="birthday-title">Thông tin cơ bản</h1>
+      <p>Nhập ngày sinh và giới tính của bạn</p>
+    </div>
+
+    <div class="birthday-form-container">
+      <form [formGroup]="form" (submit)="submit($event)" novalidate>
+        <div class="date-fields">
+          <div class="input-field">
+            <label class="visually-hidden" for="birthday-day">Ngày</label>
+            <input
+              id="birthday-day"
+              name="day"
+              type="number"
+              inputmode="numeric"
+              min="1"
+              max="31"
+              placeholder="Ngày"
+              autocomplete="bday-day"
+              formControlName="day"
+              [attr.aria-invalid]="day.touched && day.invalid"
+              [attr.aria-describedby]="form.touched && form.invalid ? 'birthday-error' : null"
+            />
+          </div>
+
+          <div class="input-field">
+            <label class="visually-hidden" for="birthday-month">Tháng</label>
+            <select
+              id="birthday-month"
+              name="month"
+              autocomplete="bday-month"
+              required
+              formControlName="month"
+              [attr.aria-invalid]="month.touched && month.invalid"
+              [attr.aria-describedby]="form.touched && form.invalid ? 'birthday-error' : null"
+            >
+              <option value="" disabled hidden>Tháng</option>
+              @for (monthName of months; track $index) {
+                <option [value]="$index + 1">{{ monthName }}</option>
+              }
+            </select>
+            <svg
+              class="dropdown-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              height="24"
+              width="24"
+              fill="#1f1f1f"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <path d="M12,15L7,10H17l-5,5Z" />
+            </svg>
+          </div>
+
+          <div class="input-field">
+            <label class="visually-hidden" for="birthday-year">Năm</label>
+            <input
+              id="birthday-year"
+              name="year"
+              type="text"
+              inputmode="numeric"
+              maxlength="4"
+              pattern="[0-9]{4}"
+              placeholder="Năm"
+              autocomplete="bday-year"
+              formControlName="year"
+              [attr.aria-invalid]="year.touched && year.invalid"
+              [attr.aria-describedby]="form.touched && form.invalid ? 'birthday-error' : null"
+            />
+          </div>
+        </div>
+
+        <div class="input-field gender-field">
+          <label class="visually-hidden" for="birthday-gender">Giới tính</label>
+          <select
+            id="birthday-gender"
+            name="gender"
+            required
+            formControlName="gender"
+            [attr.aria-invalid]="gender.touched && gender.invalid"
+            [attr.aria-describedby]="form.touched && form.invalid ? 'birthday-error' : null"
+          >
+            <option value="" disabled hidden>Giới tính</option>
+            <option value="female">Nữ</option>
+            <option value="male">Nam</option>
+            <option value="prefer-not-to-say">Không muốn trả lời</option>
+            <option value="custom">Tùy chỉnh</option>
+          </select>
+          <svg
+            class="dropdown-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            height="24"
+            width="24"
+            fill="#1f1f1f"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <path d="M12,15L7,10H17l-5,5Z" />
+          </svg>
+        </div>
+
+        <button
+          class="reason-link"
+          type="button"
+          [attr.aria-expanded]="reasonExpanded()"
+          aria-controls="birthday-reason"
+          (click)="reasonExpanded.set(!reasonExpanded())"
+        >
+          Lý do chúng tôi yêu cầu cung cấp ngày sinh và giới tính
+        </button>
+        @if (reasonExpanded()) {
+          <p class="reason-details" id="birthday-reason">
+            Thông tin này giúp bảo vệ tài khoản và cung cấp các dịch vụ phù hợp với độ tuổi của bạn.
+          </p>
+        }
+
+        <div class="actions">
+          <button class="next-button" type="submit">Tiếp theo</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <app-footerauth></app-footerauth>
+</main>
