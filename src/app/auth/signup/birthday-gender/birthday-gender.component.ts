@@ -30,8 +30,8 @@ function validBirthday(control: AbstractControl): ValidationErrors | null {
 @Component({
   imports: [Footerauth, NgOptimizedImage, ReactiveFormsModule],
   selector: 'app-birthdaygender',
-  styleUrl: './birthdaygender.css',
-  templateUrl: './birthdaygender.html',
+  styleUrl: './birthday-gender.component.css',
+  templateUrl: './birthday-gender.component.html',
 })
 export class Birthdaygender {
   private readonly router = inject(Router);

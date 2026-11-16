@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter, Router } from '@angular/router';
-import { Createpassword } from './createpassword';
+import { Createpassword } from './create-password.component';
 
 describe('Createpassword', () => {
   let component: Createpassword;

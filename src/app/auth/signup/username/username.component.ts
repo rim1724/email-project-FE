@@ -53,8 +53,8 @@ function getSignupName(state: unknown): { firstName: string; lastName: string } 
 @Component({
   imports: [Footerauth, NgOptimizedImage, ReactiveFormsModule],
   selector: 'app-username',
-  styleUrl: './username.css',
-  templateUrl: './username.html',
+  styleUrl: './username.component.css',
+  templateUrl: './username.component.html',
 })
 export class Username {
   private readonly router = inject(Router);

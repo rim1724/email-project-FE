@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   imports: [],
   selector: 'app-addrecoveryemail',
-  styleUrl: './addrecoveryemail.css',
-  templateUrl: './addrecoveryemail.html',
+  styleUrl: './add-recovery-email.component.css',
+  templateUrl: './add-recovery-email.component.html',
 })
 export class Addrecoveryemail {}

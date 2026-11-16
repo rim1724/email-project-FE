@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Location } from '@angular/common';
 import { provideRouter } from '@angular/router';
-import { Username } from './username';
+import { Username } from './username.component';
 
 describe('Username', () => {
   let component: Username;
